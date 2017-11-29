@@ -8,6 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by fthomas on 11/28/2017.
  */
 
-public class Database extends SQLiteOpenHelper {
+public class Database  {
 
 }
