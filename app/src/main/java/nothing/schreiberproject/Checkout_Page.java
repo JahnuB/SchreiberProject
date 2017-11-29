@@ -12,13 +12,10 @@ public class Checkout_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Checkout");
-        Button button = (Button) findViewById(R.id.purchase);
         setContentView(R.layout.activity_checkout__page);
-//        button.setOnClickListener( new View.OnClickListener()
-//        {
-//            public void onClick (View v){
-//                startActivity(new Intent(Checkout_Page.this, gpsMAP.class));
-//            }
-//        });
+    }
+
+    public void gps (View v) {
+        startActivity(new Intent(Checkout_Page.this, nothing.schreiberproject.gpsMAP.class));
     }
 }
