@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
     globals g = globals.getInstance();
     @Override
@@ -26,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
         number++;
         cartnumber.setText(number.toString());
 
-
-        int price = Integer.parseInt(v.getTag().toString());
-        int subtotal = 0;
+        DecimalFormat df = new DecimalFormat("#0.00");
+        double price = Double.parseDouble(String.valueOf(v.getTag()));
+        double subtotal = 0.00;
         subtotal = g.getST();
         subtotal = subtotal + price;
         g.setST(subtotal);
-        Log.d("price: ", String.valueOf(g.getST()));
+        Log.d("st: ", String.valueOf(subtotal));
     }
 
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
+import java.text.DecimalFormat;
 
 public class Checkout_Page extends AppCompatActivity {
 
@@ -16,13 +17,22 @@ public class Checkout_Page extends AppCompatActivity {
         setTitle("Checkout");
 
         setContentView(R.layout.activity_checkout__page);
-
         globals g = globals.getInstance();
-        Log.d("price:", String.valueOf(g.getST()));
-        Integer subtotal = g.getST();
+        double subtotal = g.getST();
+        DecimalFormat df = new DecimalFormat("#.##");
         String st = String.valueOf(subtotal);
+        //String st = (df.format(subtotal).toString());
+        Log.d("st2: ", String.valueOf(subtotal));
         TextView tv = (TextView)findViewById(R.id.subtotal_tv);
         tv.setText(st);
+
+        double tax = subtotal * 0.04;
+        TextView taxView = (TextView)findViewById(R.id.tax_tv);
+        taxView.setText(String.valueOf(tax));
+
+        double total = subtotal + tax;
+        TextView totalView = (TextView) findViewById(R.id.total_tv);
+        totalView.setText(String.valueOf(total));
     }
 
     public void gps (View v) {

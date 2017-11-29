@@ -7,15 +7,15 @@ public class globals{
     private static globals instance;
 
     // Global variable
-    private int data;
+    private double data;
 
     // Restrict the constructor from being instantiated
     private globals(){}
 
-    public void setST(int d){
+    public void setST(double d){
         this.data=d;
     }
-    public int getST(){
+    public double getST(){
         return this.data;
     }
 
