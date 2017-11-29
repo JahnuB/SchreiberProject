@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
-
+    globals g = globals.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void checkout (View v) {
@@ -25,7 +25,14 @@ public class MainActivity extends AppCompatActivity {
         Integer number = Integer.parseInt(cartnumber.getText().toString());
         number++;
         cartnumber.setText(number.toString());
-    }
 
+
+        int price = Integer.parseInt(v.getTag().toString());
+        int subtotal = 0;
+        subtotal = g.getST();
+        subtotal = subtotal + price;
+        g.setST(subtotal);
+        Log.d("price: ", String.valueOf(g.getST()));
+    }
 
 }
